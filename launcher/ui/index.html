@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fireline Launcher</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Custom Titlebar -->
+  <header class="titlebar" id="titlebar">
+    <div class="titlebar-drag">
+      <div class="app-logo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" stroke="#ff6b00" />
+          <path d="M12 2v20M2 12h20" stroke="#ff8800" stroke-width="1.5" />
+          <circle cx="12" cy="12" r="4" fill="#ff6b00" />
+        </svg>
+        <span class="app-title">FIRELINE <span class="app-title-badge">LAUNCHER</span></span>
+      </div>
+    </div>
+    <div class="window-controls">
+      <button class="win-btn win-min" id="btn-minimize" title="Свернуть">
+        <svg viewBox="0 0 10 10" width="10" height="10">
+          <line x1="0" y1="5" x2="10" y2="5" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+      <button class="win-btn win-close" id="btn-close" title="Закрыть">
+        <svg viewBox="0 0 10 10" width="10" height="10">
+          <line x1="1" y1="1" x2="9" y2="9" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="9" y1="1" x2="1" y2="9" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="launcher-body">
+    <!-- Hero / Banner Section -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="game-meta">
+          <span class="badge badge-online">
+            <span class="status-dot pulse"></span> ФАНАТСКИЙ ЛАУНЧЕР
+          </span>
+          <span class="badge badge-version" id="hero-version-badge">v1.13</span>
+        </div>
+        <h1 class="hero-title">Fireline</h1>
+        <p class="hero-subtitle">2D игра про боевые самолеты.</p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="tab-btn active" data-tab="tab-news">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+          </svg>
+          Новости и Патчи
+        </button>
+        <button class="tab-btn" data-tab="tab-settings">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Настройки
+        </button>
+      </nav>
+    </section>
+
+    <!-- Tab Contents -->
+    <section class="content-section">
+      <!-- News / Changelog Tab -->
+      <div class="tab-pane active" id="tab-news">
+        <div class="patchnote-card">
+          <div class="patchnote-header">
+            <div>
+              <span class="patchnote-tag" id="release-tag">Загрузка...</span>
+              <h2 class="patchnote-title" id="release-title">Проверка информации о релизе...</h2>
+            </div>
+            <span class="patchnote-date" id="release-date"></span>
+          </div>
+          <div class="patchnote-body" id="release-body">
+            Ожидание ответа от серверов обновлений GitHub...
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Tab -->
+      <div class="tab-pane" id="tab-settings">
+        <div class="settings-card">
+          <h3>Параметры лаунчера и игры</h3>
+          <div class="setting-item">
+            <div class="setting-info">
+              <span class="setting-name">Папка с установленной игрой</span>
+              <span class="setting-desc" id="setting-game-path">...\launcher\game</span>
+            </div>
+            <button class="btn btn-secondary" id="btn-open-folder">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+              </svg>
+              Открыть в проводнике
+            </button>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <span class="setting-name">Проверка целостности и обновлений</span>
+              <span class="setting-desc">Принудительно запросить последний релиз с GitHub</span>
+            </div>
+            <button class="btn btn-secondary" id="btn-recheck">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 4v6h-6M1 20v-6h6"/>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+              Проверить сейчас
+            </button>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <span class="setting-name">Репозиторий проекта</span>
+              <span class="setting-desc">Welloty / fireline (GitHub Releases)</span>
+            </div>
+            <button class="btn btn-secondary" id="btn-open-github">
+              GitHub
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Dock / Action Bar -->
+    <footer class="action-dock">
+      <div class="dock-left">
+        <div class="status-wrapper">
+          <div class="status-indicator-icon" id="status-icon">
+            <span class="status-indicator ready"></span>
+          </div>
+          <div class="status-text-block">
+            <span class="status-headline" id="status-headline">Готов к запуску</span>
+            <span class="status-detail" id="status-detail">Установлена версия v1.13</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar Container (shown during download/extract) -->
+        <div class="progress-container" id="progress-container">
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-fill" style="width: 0%;"></div>
+          </div>
+          <div class="progress-meta">
+            <span id="progress-text">Скачивание: 0%</span>
+            <span id="progress-speed">0 MB / 0 MB (0 MB/s)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dock-right">
+        <button class="btn btn-cancel" id="btn-cancel" style="display: none;">Отмена</button>
+        <button class="btn btn-primary" id="btn-main-action">
+          <span class="btn-icon" id="main-btn-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </span>
+          <span class="btn-text" id="main-btn-text">Играть</span>
+        </button>
+      </div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

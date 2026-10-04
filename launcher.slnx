@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="autoupdate/autoupdate.vcxproj" Id="f190930e-8030-4695-a938-0387849204b1" />
+  <Project Path="launcher/autoupdate.vcxproj" Id="f190930e-8030-4695-a938-0387849204b1" />
 </Solution>
